@@ -1,7 +1,11 @@
 {
   "name": "scriptable-voice-server",
   "version": "0.0.1",
+  "scripts": {
+    "start": "node ./bin/www"
+  },
   "dependencies": {
-
+    "express": "5.0.0-alpha.2",
+    "morgan": "1.7.0"
   }
 }

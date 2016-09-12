@@ -1,3 +1,5 @@
+"use strict";
+
 let app = require("../app");
 let http = require("http");
 
