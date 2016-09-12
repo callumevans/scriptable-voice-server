@@ -16,22 +16,15 @@ app.use((request, response, next) => {
 // Error logger
 app.use(logger("dev"));
 
-if (app.get("env") === "development") {
-    app.use((error, request, response) => {
-        response.status(error.status || 500);
-        response.render("error", {
-            message: error.message,
-            error: error
-        });
+// If dev then print full stack trace on error
+let isDev = app.get("env") === "development";
+
+app.use((error, request, response) => {
+    response.status(error.status || 500);
+    response.render("error", {
+        message: error.message,
+        error: isDev ? error : null
     });
-} else {
-    app.use((error, request, response) => {
-        response.status(error.status || 500);
-        response.render("error", {
-            message: error.message,
-            error: null
-        });
-    });
-}
+});
 
 module.exports = app;
