@@ -5,6 +5,11 @@ let logger = require("morgan");
 
 let app = express();
 
+// Routes
+let routes = require("./routes/index");
+
+app.use("/", routes);
+
 // 404 Handler
 app.use((request, response, next) => {
     let error = new Error("Not Found");
