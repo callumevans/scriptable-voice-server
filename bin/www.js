@@ -17,8 +17,6 @@ server.listen(port);
 
 // Event listeners
 
-server.on("listening", onListening);
-
-function onListening() {
+server.on("listening", () => {
     console.log(`Listening on port ${port}`);
-}
+});
