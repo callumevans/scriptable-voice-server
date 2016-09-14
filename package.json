@@ -2,7 +2,12 @@
   "name": "scriptable-voice-server",
   "version": "0.0.1",
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "tests": "mocha */*-spec.js --recursive --watch"
+  },
+  "devDependencies": {
+    "chai": "3.5.0",
+    "mocha": "3.0.2"
   },
   "dependencies": {
     "express": "5.0.0-alpha.2",
