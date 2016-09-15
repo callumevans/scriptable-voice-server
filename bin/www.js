@@ -1,14 +1,14 @@
-"use strict";
+'use strict';
 
 // Modules
 
-let app = require("../app");
-let http = require("http");
+let app = require('../app');
+let http = require('http');
 
 // Set port
 
-let port = process.env.PORT || "3000";
-app.set("port", port);
+let port = process.env.PORT || '3000';
+app.set('port', port);
 
 // Create server
 
@@ -17,6 +17,6 @@ server.listen(port);
 
 // Event listeners
 
-server.on("listening", () => {
+server.on('listening', () => {
     console.log(`Listening on port ${port}`);
 });
