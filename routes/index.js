@@ -1,14 +1,12 @@
 "use strict";
 
-let express = require("express");
-let router = express.Router();
+var express = require("express");
+var router = express.Router();
+
+var data = require("../services/data-access");
 
 router.get("/", (request, response) => {
-   response.json({"test":"value"});
+   response.json(data.getDatabase());
 });
-
-function test() {
-   return 123;
-}
 
 module.exports = router;
