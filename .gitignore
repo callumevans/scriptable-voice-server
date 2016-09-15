@@ -1,7 +1,9 @@
+*coverage/
+svs.db
+
 # Jetbrains
 
 *idea/
-*coverage/
 
 # Logs
 logs
