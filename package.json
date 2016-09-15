@@ -3,8 +3,7 @@
   "version": "0.0.1",
   "scripts": {
     "start": "node ./bin/www",
-    "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha */*-spec.js && codecov",
-    "test": "mocha */*-spec.js"
+    "test": "istanbul cover ./node_modules/mocha/bin/_mocha */*-spec.js && codecov",
   },
   "devDependencies": {
     "chai": "3.5.0",
