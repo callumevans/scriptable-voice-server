@@ -6,7 +6,7 @@ node_js:
   - "5.11"
   
 install:
-  - npm install --dev
+  - npm install
 
 script:
   - npm coverage
