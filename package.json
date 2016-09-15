@@ -3,10 +3,12 @@
   "version": "0.0.1",
   "scripts": {
     "start": "node ./bin/www",
-    "tests": "mocha */*-spec.js --recursive --watch"
+    "test": "istanbul cover ./node_modules/mocha/bin/_mocha */*-spec.js && codecov"
   },
   "devDependencies": {
     "chai": "3.5.0",
+    "codecov": "1.0.*",
+    "istanbul": "0.4.5",
     "mocha": "3.0.2"
   },
   "dependencies": {
