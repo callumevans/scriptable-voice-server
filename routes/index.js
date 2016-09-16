@@ -1,11 +1,11 @@
-"use strict";
+'use strict';
 
-var express = require("express");
+var express = require('express');
 var router = express.Router();
 
-var data = require("../services/data-access");
+var data = require('../services/data-access');
 
-router.get("/", (request, response) => {
+router.get('/', (request, response) => {
    response.json(data.getDatabase());
 });
 
