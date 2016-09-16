@@ -5,6 +5,6 @@ let expect = chai.expect;
 
 describe('Test', () => {
     it('should pass', () => {
-        expect(123).to.equal(123);
+        expect(3).to.equal(3);
     });
 });
