@@ -23,4 +23,4 @@ if (!exists) {
 
 exports.getDatabase = function () {
     return 'Hello!';
-}
+};
