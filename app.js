@@ -1,32 +1,32 @@
-"use strict";
+'use strict';
 
-let express = require("express");
-let logger = require("morgan");
+let express = require('express');
+let logger = require('morgan');
 
 let app = express();
 
 // Routes
-let routes = require("./routes/index");
+let routes = require('./routes/index');
 
-app.use("/", routes);
+app.use('/', routes);
 
 // 404 Handler
 app.use((request, response, next) => {
-    let error = new Error("Not Found");
+    let error = new Error('Not Found');
     error.status = 404;
 
     next(error);
 });
 
 // Error logger
-app.use(logger("dev"));
+app.use(logger('dev'));
 
 // If dev then print full stack trace on error
-let isDev = app.get("env") === "development";
+let isDev = app.get('env') === 'development';
 
 app.use((error, request, response) => {
     response.status(error.status || 500);
-    response.render("error", {
+    response.render('error', {
         message: error.message,
         error: isDev ? error : null
     });
