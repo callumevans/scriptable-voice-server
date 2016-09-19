@@ -10,8 +10,7 @@
     "codacy-coverage": "2.0.0",
     "istanbul": "0.4.5",
     "mocha": "3.0.2",
-    "mocha-lcov-reporter": "1.2.0",
-    "sqlite3": "3.1.*"
+    "mocha-lcov-reporter": "1.2.0"
   },
   "dependencies": {
     "express": "5.0.0-alpha.2",
