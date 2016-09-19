@@ -1,0 +1,1 @@
+CREATE TABLE Stuff (thing TEXT)

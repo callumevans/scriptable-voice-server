@@ -5,7 +5,7 @@ var router = express.Router();
 
 var data = require('../services/data-access');
 
-router.get('/', (request, response) => {
+router.get('/', (req, res) => {
    response.json(data.getDatabase());
 });
 

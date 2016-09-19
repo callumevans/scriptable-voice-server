@@ -1,18 +1,22 @@
 'use strict';
 
-let express = require('express');
-let logger = require('morgan');
+var express = require('express');
+var logger = require('morgan');
+var path = require('path');
 
-let app = express();
+var app = express();
+
+// Global path
+global.appRoot = path.resolve(__dirname);
 
 // Routes
-let routes = require('./routes/index');
+var routes = require('./routes/index');
 
 app.use('/', routes);
 
 // 404 Handler
-app.use((request, response, next) => {
-    let error = new Error('Not Found');
+app.use((req, res, next) => {
+    var error = new Error('Not Found');
     error.status = 404;
 
     next(error);
@@ -22,13 +26,13 @@ app.use((request, response, next) => {
 app.use(logger('dev'));
 
 // If dev then print full stack trace on error
-let isDev = app.get('env') === 'development';
+var isDev = app.get('env') === 'development';
 
-app.use((error, request, response) => {
-    response.status(error.status || 500);
-    response.render('error', {
-        message: error.message,
-        error: isDev ? error : null
+app.use((err, req, res) => {
+    res.status(err.status || 500);
+    res.render('error', {
+        message: err.message,
+        error: isDev ? err : null
     });
 });
 
