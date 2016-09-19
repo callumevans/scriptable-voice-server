@@ -1,6 +1,6 @@
 'use strict';
 
-var exports = module.exports = { };
+var exports = module.exports;
 
 var fs = require('fs');
 var file = 'svs.db';
@@ -12,15 +12,19 @@ var db = new sqlite3.Database(file);
 
 if (!exists) {
     console.log('Creating database...');
+
+    var data = fs.readFileSync(global.appRoot + '/database/create.sql', 'utf8');
+
     fs.openSync(file, 'w');
 
     db.serialize(() => {
-        db.run('CREATE TABLE Stuff (thing TEXT)');
+        db.run(data);
+        console.log('Database created!');
     });
 
     db.close();
 }
 
 exports.getDatabase = function () {
-    return 'Hello!';
+    return db;
 };

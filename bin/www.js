@@ -2,17 +2,17 @@
 
 // Modules
 
-let app = require('../app');
-let http = require('http');
+var app = require('../app');
+var http = require('http');
 
 // Set port
 
-let port = process.env.PORT || '3000';
+var port = process.env.PORT || '3000';
 app.set('port', port);
 
 // Create server
 
-let server = http.createServer(app);
+var server = http.createServer(app);
 server.listen(port);
 
 // Event listeners
