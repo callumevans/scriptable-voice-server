@@ -21,8 +21,6 @@ if (!exists) {
         db.run(data);
         console.log('Database created!');
     });
-
-    db.close();
 }
 
 exports.getDatabase = function () {
