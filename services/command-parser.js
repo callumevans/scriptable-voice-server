@@ -6,6 +6,8 @@ var namedParam    = /(\(\?)?:\w+/g;
 var splatParam    = /\*\w+/g;
 var escapeRegExp  = /[\-{}\[\]+?.,\\\^$|#]/g;
 
+// Functions
+
 var commandToRegEx = function(command) {
     command = command.replace(escapeRegExp, '\\$&')
         .replace(optionalParam, '(?:$1)?')
@@ -17,8 +19,16 @@ var commandToRegEx = function(command) {
     return '^' + command + '$';
 };
 
+var isCommandMatch = function (command, input) {
+    var regex = commandToRegEx(command);
+    var result = input.match(regex);
+
+    return (result !== null);
+};
+
 // Exports
 
 var exports = module.exports = { };
 
 exports.commandToRegEx = commandToRegEx;
+exports.isCommandMatch = isCommandMatch;

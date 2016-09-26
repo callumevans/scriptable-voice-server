@@ -10,8 +10,8 @@ var router = express.Router();
 var commandParser = require('~/services/command-parser');
 
 router.get('/', async ((req, res) => {
-    var resp = commandParser.commandToRegEx('Hello :world');
-    res.send(resp);
+    var out = await (plugins.getFunctionForCommand('hello world'));
+    res.send(out);
 }));
 
 module.exports = router;

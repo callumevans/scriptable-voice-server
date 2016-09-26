@@ -2,7 +2,21 @@
   "name": "test1-plugin",
   "version": "1.0.0",
   "commands": {
-    "testCommand": "hello world",
-    "test": "hello"
+    "test1": "what dafuq",
+    "test2": "what dafuq",
+    "test3": "what dafuq",
+    "test4": "what dafuq",
+    "test5": "what dafuq",
+    "test6": "what dafuq",
+    "test7": "what dafuq",
+    "test8": "what dafuq",
+    "test9": "what dafuq",
+    "test10": "what dafuq",
+    "test11": "what dafuq",
+    "test12": "what dafuq",
+    "test13": "what dafuq",
+    "test14": "what dafuq",
+    "test15": "what dafuq",
+    "testCommand": "da"
   }
 }

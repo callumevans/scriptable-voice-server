@@ -2,6 +2,7 @@
 
 var Promise = require('bluebird');
 var fs = Promise.promisifyAll(require('fs'));
+var commandParser = require('~/services/command-parser');
 var async = require('asyncawait/async');
 var await = require('asyncawait/await');
 
@@ -45,16 +46,17 @@ var getPluginMap = async (() => {
     return pluginMap;
 });
 
-var getFunctionForCommand = async ((cmd) => {
+var getFunctionForCommand = async ((inputCommand) => {
     var pluginMap = await (getPluginMap());
+    var regex = commandParser.commandToRegEx(inputCommand);
 
     for (var plugin in pluginMap) {
         for (var command in pluginMap[plugin]['commands']) {
-            var expression = pluginMap[plugin]['commands'][command];
+            var pluginCommand = pluginMap[plugin]['commands'][command];
+            var matched = commandParser.isCommandMatch(pluginCommand, inputCommand);
 
-            //
-            if (expression == cmd) {
-
+            if (matched) {
+                return true;
             }
         }
     }
