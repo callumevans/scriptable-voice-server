@@ -23,7 +23,13 @@ var isCommandMatch = function (command, input) {
     var regex = commandToRegEx(command);
     var result = input.match(regex);
 
-    return (result !== null);
+    var parsedArguments = null;
+
+    if (result !== null) {
+        parsedArguments = result.slice(1);
+    }
+
+    return parsedArguments;
 };
 
 // Exports
