@@ -65,7 +65,7 @@ var getFunctionForCommand = async ((inputCommand) => {
             // and execute the found function
             if (match !== null) {
                 var pluginFunctions = require(getPluginFunctionFile(plugin));
-                var response = await (pluginFunctions[command](match));
+                var response = await (pluginFunctions[command].apply(this, match));
 
                 return response;
             }

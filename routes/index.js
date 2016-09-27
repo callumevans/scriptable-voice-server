@@ -8,7 +8,7 @@ var await = require('asyncawait/await');
 var router = express.Router();
 
 router.get('/', async ((req, res) => {
-    var out = await (plugins.getFunctionForCommand('hello world'));
+    var out = await (plugins.getFunctionForCommand('hello world Manchester'));
     res.send(out);
 }));
 
