@@ -20,9 +20,11 @@ var getPluginJson = async ((plugin) => {
 });
 
 var getPluginDirectories = async (() => {
-    return await (fs.readdirAsync(
+    var directories = await (fs.readdirAsync(
         `${global.appRoot}/plugins`
     ));
+
+    return directories;
 });
 
 var refreshPlugins = async (() => {

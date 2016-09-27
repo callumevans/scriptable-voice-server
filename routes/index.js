@@ -7,8 +7,6 @@ var await = require('asyncawait/await');
 
 var router = express.Router();
 
-var commandParser = require('~/services/command-parser');
-
 router.get('/', async ((req, res) => {
     var out = await (plugins.getFunctionForCommand('hello world'));
     res.send(out);
