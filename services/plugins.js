@@ -2,7 +2,6 @@
 
 var Promise = require('bluebird');
 var fs = Promise.promisifyAll(require('fs'));
-var Reflect = require('reflect-metadata');
 var commandParser = require('~/services/command-parser');
 var async = require('asyncawait/async');
 var await = require('asyncawait/await');
@@ -67,7 +66,7 @@ var getFunctionForCommand = async ((inputCommand) => {
             if (match !== null) {
                 var pluginFunctions = require(getPluginFunctionFile(plugin));
                 var response = await (pluginFunctions[command].apply(this, match));
-                
+
                 return response;
             }
         }
