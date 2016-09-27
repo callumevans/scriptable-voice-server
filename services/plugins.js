@@ -48,17 +48,25 @@ var getPluginMap = async (() => {
     return pluginMap;
 });
 
+var getPluginFunctionFile = function(plugin) {
+    return `${global.appRoot}/plugins/${plugin}/functions`;
+};
+
 var getFunctionForCommand = async ((inputCommand) => {
     var pluginMap = await (getPluginMap());
-    var regex = commandParser.commandToRegEx(inputCommand);
 
     for (var plugin in pluginMap) {
         for (var command in pluginMap[plugin]['commands']) {
             var pluginCommand = pluginMap[plugin]['commands'][command];
             var matched = commandParser.isCommandMatch(pluginCommand, inputCommand);
 
+            // If we have found a matching command then import the plugin's function file
+            // and execute the found function
             if (matched) {
-                return true;
+                var pluginFunctions = require(getPluginFunctionFile(plugin));
+                pluginFunctions[command]();
+
+                return;
             }
         }
     }
