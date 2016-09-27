@@ -11,7 +11,7 @@ var escapeRegExp  = /[\-{}\[\]+?.,\\\^$|#]/g;
 var commandToRegEx = function(command) {
     command = command.replace(escapeRegExp, '\\$&')
         .replace(optionalParam, '(?:$1)?')
-        .replace(namedParam, function(match, optional) {
+        .replace(namedParam, (match, optional) => {
             return optional ? match : '([^\\s]+)';
         })
         .replace(splatParam, '(.*?)')
