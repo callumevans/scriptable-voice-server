@@ -71,6 +71,9 @@ var getFunctionForCommand = async ((inputCommand) => {
             }
         }
     }
+
+    // No function found
+    return null;
 });
 
 // Exports
