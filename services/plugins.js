@@ -13,7 +13,7 @@ var pluginMap = null;
 // Functions
 
 var getPluginJson = async ((plugin) => {
-    var data = await(fs.readFileAsync(
+    var data = await (fs.readFileAsync(
         `${global.appRoot}/plugins/${plugin}/plugin.json`, 'utf-8'));
 
     return JSON.parse(data);
@@ -52,7 +52,7 @@ var getPluginFunctionFile = function(plugin) {
     return `${global.appRoot}/plugins/${plugin}/functions`;
 };
 
-var getFunctionForCommand = async ((inputCommand) => {
+var executeFunctionForCommand = async ((inputCommand) => {
     var pluginMap = await (getPluginMap());
 
     for (var plugin in pluginMap) {
@@ -81,5 +81,5 @@ var exports = module.exports = { };
 
 exports.getPluginDirectories = getPluginDirectories;
 exports.getPluginMap = getPluginMap;
-exports.getFunctionForCommand = getFunctionForCommand;
+exports.executeFunctionForCommand = executeFunctionForCommand;
 exports.refreshPlugins = refreshPlugins;
