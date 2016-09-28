@@ -3,16 +3,22 @@
 var express = require('express');
 var logger = require('morgan');
 var path = require('path');
+var bodyParser = require('body-parser');
 
 var app = express();
 
 // Global path
 global.appRoot = path.resolve(__dirname);
 
-// Routes
-var routes = require('./routes/index');
+// Body parser
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 
-app.use('/', routes);
+// Routes
+var commands = require('./routes/commands');
+
+app.use('/commands', commands);
 
 // 404 Handler
 app.use((req, res, next) => {

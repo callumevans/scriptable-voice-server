@@ -15,8 +15,10 @@
   "dependencies": {
     "asyncawait": "1.0.*",
     "bluebird": "3.4.6",
+    "body-parser": "1.15.*",
     "express": "5.0.0-alpha.2",
     "morgan": "1.7.0",
-    "wavy": "1.0.3"
+    "wavy": "1.0.3",
+    "xmlbuilder": "8.2.2"
   }
 }

@@ -1,7 +1,7 @@
 'use strict';
 
-let chai = require('chai');
-let expect = chai.expect;
+var chai = require('chai');
+var expect = chai.expect;
 
 describe('Test', () => {
     it('should pass', () => {
