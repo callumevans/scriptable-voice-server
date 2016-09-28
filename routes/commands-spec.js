@@ -1,15 +1,10 @@
 'use strict';
 
-var express = require('express');
-var plugins = require('~/services/plugins.js');
-var async = require('asyncawait/async');
-var await = require('asyncawait/await');
+var chai = require('chai');
+var expect = chai.expect;
 
-var router = express.Router();
-
-router.get('/', async ((req, res) => {
-    var out = await (plugins.getFunctionForCommand('hello world Manchester'));
-    res.send(out);
-}));
-
-module.exports = router;
+describe('Test', () => {
+    it('should pass', () => {
+        expect(1).to.equal(1);
+    });
+});
